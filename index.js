@@ -1,6 +1,8 @@
 //First-class Function
+//Each problem statement is one function
 //Assign a function to a variable in JavaScript and use it to return another function that performs a specific operation, 
 //such as multiplying two numbers or transforming a string.
+//2nd is a partial application
 
 // const umbrellaFunction = (num) => { //1st function
 //     return func(a) * number;
