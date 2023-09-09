@@ -23,6 +23,17 @@ const takeNum = multiplyNumbers(3);
 const multipliedNums = takeNum(7);
 console.log(multipliedNums);
 
+//Create a function that takes two numbers as input and returns an object
+const numbersToObject = (num1) => {
+    num1 += 2;
+    return (num2) => {
+        num2 += 4;
+        return {"1":num1, "2":num2};
+    }
+}
+const firstNum = numbersToObject(5);
+console.log(firstNum(5));
+
 //Higher-order Function
 //function takes an array and a function as arguments
 //modify each element in the input and returns a new array containing the modified elements
