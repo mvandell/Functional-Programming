@@ -7,8 +7,8 @@ const testString = "Welcome";
 const upperCaseFunction = () => {
     return (str) => {
          return str.toUpperCase();
-    }
-}
+    };
+};
 const functionExecute = upperCaseFunction();
 console.log(functionExecute(testString));
 
@@ -17,8 +17,8 @@ console.log(functionExecute(testString));
 const multiplyNumbers = (num1) => {
     return (num2) => {
         return num1 * num2;
-    }
-}
+    };
+};
 const takeNum = multiplyNumbers(3);
 const multipliedNums = takeNum(7);
 console.log(multipliedNums);
@@ -29,11 +29,11 @@ const numbersToObject = (num1) => {
     return (num2) => {
         num2 += 4;
         return {"1":num1, "2":num2};
-    }
-}
+    };
+};
 const firstNum = numbersToObject(5);
 console.log(firstNum(5));
-
+console.log("----------------------------------------------------------------------")
 //Higher-order Function
 //function takes an array and a function as arguments
 //modify each element in the input and returns a new array containing the modified elements
@@ -42,8 +42,35 @@ console.log(firstNum(5));
 const arrayOfStrings = ["Hippopotamus", "King Cobra", "Giant Panda", "Crocodile"]
 const convertToLowercase = (capitalString) => {
     return capitalString.toLowerCase();
-}
+};
 const higherOrderFunc1 = (array, modifyingFunc) => {
     return array.map(modifyingFunc);
-}
+};
 console.log(higherOrderFunc1(arrayOfStrings, convertToLowercase));
+
+//Print a string that has a length of more than 11 characters
+const firstPassing = (array) => {
+    for (i=0; i<array.length; i++){
+        if (array[i].length > 11){
+            return array[i];
+        };
+    };
+};
+const higherOrderFunc2 = (array, modifyingFunc) => {
+    return modifyingFunc(array);
+};
+console.log(higherOrderFunc2(arrayOfStrings, firstPassing));
+//Create a function using a callback that takes a string as input and returns the string in reverse order
+const reverseString = (str) => {
+    const strArray = str.split("");
+    strArray.reverse();
+    //return (...strArray);
+};
+const higherOrderFunc3 = (array, modifyingFunc) => {
+    return array.map(modifyingFunc);
+};
+console.log(higherOrderFunc3(arrayOfStrings, reverseString));
+
+//Create two functions. One function generates runners with specific speeds, 
+//the other simulates a race between two runners over a specified distance. 
+//Return the winner's name or 'It's a tie!' if both runners finish simultaneously
