@@ -64,7 +64,7 @@ console.log(higherOrderFunc2(arrayOfStrings, firstPassing));
 const reverseString = (str) => {
     const strArray = str.split("");
     strArray.reverse();
-    //return (...strArray);
+    return strArray.toString().replaceAll(",", "");
 };
 const higherOrderFunc3 = (array, modifyingFunc) => {
     return array.map(modifyingFunc);
@@ -74,3 +74,22 @@ console.log(higherOrderFunc3(arrayOfStrings, reverseString));
 //Create two functions. One function generates runners with specific speeds, 
 //the other simulates a race between two runners over a specified distance. 
 //Return the winner's name or 'It's a tie!' if both runners finish simultaneously
+const player = (speed, runnerName) => {
+    return {"runner":runnerName, "speed":speed};
+};
+const race = (runner1, runner2, distance) => {
+    const time1 = distance / runner1.speed;
+    const time2 = distance / runner2.speed;
+    let result;
+    if (time1 < time2) {
+        result = runner1.runner;
+    }
+    else if (time2 < time1) {
+        result = runner2.runner;
+    }
+    else {
+        result = "It's a tie!"
+    };
+    return result;
+};
+console.log(race(player(5, "Alex"), player(10, "Andrew"), 50));
