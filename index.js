@@ -33,7 +33,7 @@ const numbersToObject = (num1) => {
 };
 const firstNum = numbersToObject(5);
 console.log(firstNum(5));
-console.log("----------------------------------------------------------------------")
+console.log("---------------------------------------------------------------------------")
 //Higher-order Function
 //function takes an array and a function as arguments
 //modify each element in the input and returns a new array containing the modified elements
@@ -93,3 +93,21 @@ const race = (runner1, runner2, distance) => {
     return result;
 };
 console.log(race(player(5, "Alex"), player(10, "Andrew"), 50));
+console.log("---------------------------------------------------------------------------");
+
+//Currying Function
+//Function takes the protocol, subdomain, domain, top-level domain (TLD), and endpoint as input parameters (5)
+//returns a concatenated URL string
+//curried function that returns a new function for each input parameter
+const curriedConcat = (protocol) => {
+    return (subdomain) => {
+        return (domain) => {
+            return (TLD) => {
+                return (endpoint) => {
+                    return `${protocol}${subdomain}.${domain}.${TLD}${endpoint}`
+                }
+            }
+        }
+    }
+};
+console.log(curriedConcat("https://")("www")("fullstackacademy")("com")("/weather"));
